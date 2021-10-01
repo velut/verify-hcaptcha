@@ -1,14 +1,17 @@
 {
+  "name": "verify-hcaptcha",
   "version": "0.1.0",
+  "author": "Edoardo Scibona",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/verify-hcaptcha.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "dts watch",
@@ -19,7 +22,6 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "dts lint"
@@ -28,12 +30,8 @@
   "prettier": {
     "printWidth": 80,
     "semi": true,
-    "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "verify-hcaptcha",
-  "author": "Edoardo Scibona",
-  "module": "dist/verify-hcaptcha.esm.js",
   "size-limit": [
     {
       "path": "dist/verify-hcaptcha.cjs.production.min.js",
@@ -44,12 +42,13 @@
       "limit": "10 KB"
     }
   ],
+  "dependencies": {},
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.5",
-    "dts-cli": "^0.17.1",
-    "husky": "^7.0.2",
-    "size-limit": "^5.0.5",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "@size-limit/preset-small-lib": "5.0.5",
+    "dts-cli": "0.17.1",
+    "husky": "7.0.2",
+    "size-limit": "5.0.5",
+    "tslib": "2.3.1",
+    "typescript": "4.4.3"
   }
 }
