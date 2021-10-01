@@ -1,7 +1,22 @@
-import { sum } from '../src';
+import { rawVerifyHcaptchaToken, verifyHcaptchaToken } from "../src";
 
-describe('sum', () => {
-  it('adds two numbers together', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe("verifyHcaptchaToken", () => {
+  it("one", async () => {
+    expect.assertions(1);
+
+    const res = await verifyHcaptchaToken({} as any);
+    console.table(res);
+
+    expect(true).toBeTruthy();
+  });
+
+  it("two", async () => {
+    expect.assertions(1);
+
+    // const res = await rawVerifyHcaptchaToken({} as any);
+    const res = await rawVerifyHcaptchaToken({});
+    console.table(res);
+
+    expect(true).toBeTruthy();
   });
 });
