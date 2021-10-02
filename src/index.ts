@@ -20,8 +20,11 @@ export interface HcaptchaResponse {
    */
   readonly success: boolean;
 
-  /** Optional: timestamp of the challenge */
-  readonly challengeTimestamp?: Date;
+  /**
+   * Optional: UTC timestamp of the challenge in ISO 8601 format
+   * (for example, `2021-10-02T18:12:10.149Z`)
+   */
+  readonly challengeTimestamp?: string;
 
   /** Optional: hostname of the website where the challenge was solved */
   readonly hostname?: string;
@@ -54,16 +57,22 @@ export enum HcaptchaError {
   MissingInputSecret = "missing-input-secret",
   /** Secret key is invalid */
   InvalidInputSecret = "invalid-input-secret",
-  /** Verification token is missing */
+  /** User response token is missing */
   MissingInputResponse = "missing-input-response",
-  /** Verification token is invalid */
+  /** User response token is invalid */
   InvalidInputResponse = "invalid-input-response",
+  /** Site key is invalid */
+  InvalidSiteKey = "invalid-sitekey",
+  /** Remote user IP is invalid */
+  InvalidRemoteIp = "invalid-remoteip",
   /** Request is invalid */
   BadRequest = "bad-request",
-  /** Verification token is invalid or has already been checked */
+  /** User response token is invalid or has already been checked */
   InvalidOrAlreadySeenResponse = "invalid-or-already-seen-response",
-  /** The test site key should be used with a test verification token */
+  /** Must use the test site key when using a test verification token */
   NotUsingDummyPassCode = "not-using-dummy-passcode",
+  /** Must use the test secret key when using a test verification token */
+  NotUsingDummySecret = "not-using-dummy-secret",
   /** The site key is not associated to the secret key */
   SiteKeySecretMismatch = "sitekey-secret-mismatch",
 }
@@ -109,12 +118,12 @@ export async function verifyHcaptchaToken({
 }): Promise<HcaptchaResponse> {
   const {
     success,
-    challenge_ts,
+    challenge_ts: challengeTimestamp,
     hostname,
     credit,
     "error-codes": rawErrorCodes,
     score,
-    score_reason: rawScoreReason,
+    score_reason: scoreReasons,
   } = await rawVerifyHcaptchaToken({
     token,
     secretKey,
@@ -122,17 +131,14 @@ export async function verifyHcaptchaToken({
     remoteIp,
   });
 
-  challenge_ts as unknown;
-  rawErrorCodes as unknown;
-
   return {
     success,
-    challengeTimestamp: new Date(),
+    challengeTimestamp,
     hostname,
     credit,
-    errorCodes: [],
+    errorCodes: rawErrorCodes as HcaptchaError[] | undefined,
     score,
-    scoreReasons: rawScoreReason,
+    scoreReasons,
   };
 }
 
