@@ -6,6 +6,15 @@
   "main": "dist/index.js",
   "module": "dist/verify-hcaptcha.esm.js",
   "typings": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/verify-hcaptcha.esm.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
     "src"
