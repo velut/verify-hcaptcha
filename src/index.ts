@@ -216,13 +216,11 @@ function postToHcaptcha({
   };
 
   return new Promise((resolve, reject) => {
+    // See https://nodejs.org/api/http.html#http_class_http_clientrequest
     const req = https.request(options, (res) => {
       const chunks: string[] = [];
       res.setEncoding("utf-8");
       res
-        .on("error", (err) => {
-          reject(err);
-        })
         .on("data", (data) => {
           chunks.push(data);
         })
