@@ -1,8 +1,53 @@
 import * as https from "https";
 
 /**
- * This package provides a way to verify on the server
- * the hCaptcha tokens obtained from captcha challenges solved by users.
+ *
+ * A no dependencies, fully typed library to verify hCaptcha tokens submitted by users through CAPTCHA challenges.
+ *
+ * @remarks
+ *
+ * @example
+ *
+ * Verify a token submitted by a user:
+ *
+ * ```typescript
+ * import { verifyHcaptchaToken } from 'verify-hcaptcha';
+ *
+ * (async () => {
+ *     const result = await verifyHcaptchaToken({
+ *       token: "USER-SUBMITTED-RESPONSE-TOKEN",
+ *       secretKey: "YOUR-SECRET-KEY",
+ *       siteKey: "YOUR-SITE-KEY",
+ *     });
+ *
+ *     if (result.success) {
+ *       console.log("User is human");
+ *     } else {
+ *       console.log("User is robot");
+ *     }
+ * })();
+ * ```
+ * @example
+ *
+ * Verify a token submitted by a user and get the raw response from hCaptcha:
+ *
+ * ```typescript
+ * import { rawVerifyHcaptchaToken } from 'verify-hcaptcha';
+ *
+ * (async () => {
+ *     const result = await rawVerifyHcaptchaToken({
+ *       token: "USER-SUBMITTED-RESPONSE-TOKEN",
+ *       secretKey: "YOUR-SECRET-KEY",
+ *       siteKey: "YOUR-SITE-KEY",
+ *     });
+ *
+ *     if (result.success) {
+ *       console.log("User is human");
+ *     } else {
+ *       console.log("User is robot");
+ *     }
+ * })();
+ * ```
  *
  * @packageDocumentation
  */
