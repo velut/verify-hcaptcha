@@ -169,14 +169,19 @@ function buildForm({
   siteKey,
   remoteIp,
 }: {
-  token: string;
-  secretKey: string;
+  token?: string;
+  secretKey?: string;
   siteKey?: string;
   remoteIp?: string;
 }): string {
   const form = new URLSearchParams();
-  form.append("response", token);
-  form.append("secret", secretKey);
+  if (token) {
+    form.append("response", token);
+  }
+
+  if (secretKey) {
+    form.append("secret", secretKey);
+  }
 
   if (siteKey) {
     form.append("sitekey", siteKey);
