@@ -44,6 +44,21 @@
       "limit": "10 KB"
     }
   ],
+  "keywords": [
+    "hcaptcha",
+    "captcha",
+    "verify",
+    "response",
+    "token",
+    "user",
+    "typescript",
+    "types",
+    "typed",
+    "node",
+    "validate",
+    "check",
+    "siteverify"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@pollyjs/adapter-node-http": "5.1.1",
