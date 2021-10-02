@@ -92,7 +92,7 @@ export interface RawHcaptchaResponse {
  * @param token - required: the token obtained from a user with a captcha challenge
  * @param secretKey - required: the secret key for your account
  * @param siteKey - optional but recommended: the site key for the website hosting the captcha challenge
- * @param remoteIP - optional: the IP address of the user submitting the challenge
+ * @param remoteIp - optional: the IP address of the user submitting the challenge
  *
  * @returns a {@link HcaptchaResponse} with the verification result
  */
@@ -100,12 +100,12 @@ export async function verifyHcaptchaToken({
   token,
   secretKey,
   siteKey,
-  remoteIP,
+  remoteIp,
 }: {
   token: string;
   secretKey: string;
   siteKey?: string;
-  remoteIP?: string;
+  remoteIp?: string;
 }): Promise<HcaptchaResponse> {
   const {
     success,
@@ -119,7 +119,7 @@ export async function verifyHcaptchaToken({
     token,
     secretKey,
     siteKey,
-    remoteIP,
+    remoteIp,
   });
 
   challenge_ts as unknown;
@@ -143,7 +143,7 @@ export async function verifyHcaptchaToken({
  * @param token - required: the token obtained from a user with a captcha challenge
  * @param secretKey - required: the secret key for your account
  * @param siteKey - optional but recommended: the site key for the website hosting the captcha challenge
- * @param remoteIP - optional: the IP address of the user submitting the challenge
+ * @param remoteIp - optional: the IP address of the user submitting the challenge
  *
  * @returns a {@link RawHcaptchaResponse} with the verification result
  */
@@ -151,14 +151,14 @@ export async function rawVerifyHcaptchaToken({
   token,
   secretKey,
   siteKey,
-  remoteIP,
+  remoteIp,
 }: {
   token: string;
   secretKey: string;
   siteKey?: string;
-  remoteIP?: string;
+  remoteIp?: string;
 }): Promise<RawHcaptchaResponse> {
-  const form = buildForm({ token, secretKey, siteKey, remoteIP });
+  const form = buildForm({ token, secretKey, siteKey, remoteIp });
   const data = await postToHcaptcha({ form });
   return data;
 }
@@ -167,12 +167,12 @@ function buildForm({
   token,
   secretKey,
   siteKey,
-  remoteIP,
+  remoteIp,
 }: {
   token: string;
   secretKey: string;
   siteKey?: string;
-  remoteIP?: string;
+  remoteIp?: string;
 }): string {
   const form = new URLSearchParams();
   form.append("response", token);
@@ -182,8 +182,8 @@ function buildForm({
     form.append("sitekey", siteKey);
   }
 
-  if (remoteIP) {
-    form.append("remoteip", remoteIP);
+  if (remoteIp) {
+    form.append("remoteip", remoteIp);
   }
 
   return form.toString();
