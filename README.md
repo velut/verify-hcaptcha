@@ -4,15 +4,15 @@
 [![Coverage](https://img.shields.io/codecov/c/gh/velut/verify-hcaptcha)](https://codecov.io/gh/velut/verify-hcaptcha)
 [![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/verify-hcaptcha)
 ![Language](https://img.shields.io/github/languages/top/velut/verify-hcaptcha)
-[![Dependencies](https://img.shields.io/david/velut/verify-hcaptcha)](https://david-dm.org/velut/verify-hcaptcha)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/verify-hcaptcha)](https://bundlephobia.com/result?p=verify-hcaptcha)
 [![npm](https://img.shields.io/npm/v/verify-hcaptcha)](https://www.npmjs.com/package/verify-hcaptcha)
 [![License](https://img.shields.io/github/license/velut/verify-hcaptcha)](https://github.com/velut/verify-hcaptcha/blob/main/LICENSE)
 
 
-A no dependencies, fully typed library to verify hCaptcha tokens submitted by users through CAPTCHA challenges.
+A no dependencies, fully typed library to verify hCaptcha tokens
+submitted by users when solving CAPTCHA challenges.
 
-> Note: this is an unofficial library; we are not affiliated with hCaptcha.com
+> Note: this is an **unofficial** library; we are not affiliated with hCaptcha.com
 
 ## Features
 

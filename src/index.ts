@@ -2,9 +2,12 @@ import * as https from "https";
 
 /**
  *
- * A no dependencies, fully typed library to verify hCaptcha tokens submitted by users through CAPTCHA challenges.
+ * A no dependencies, fully typed library to verify hCaptcha tokens
+ * submitted by users when solving CAPTCHA challenges.
  *
  * @remarks
+ *
+ * Note: this is an unofficial library; we are not affiliated with hCaptcha.com
  *
  * @example
  *
@@ -27,6 +30,7 @@ import * as https from "https";
  *     }
  * })();
  * ```
+ *
  * @example
  *
  * Verify a token submitted by a user and get the raw response from hCaptcha:
