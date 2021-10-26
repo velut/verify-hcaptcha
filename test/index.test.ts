@@ -6,7 +6,7 @@ import FSPersister from "@pollyjs/persister-fs";
 import nock from "nock";
 import * as path from "path";
 import { setupPolly } from "setup-polly-jest";
-import { HcaptchaError, verifyHcaptchaToken } from "../src";
+import { verifyHcaptchaToken } from "../src";
 
 // See https://github.com/gribnoysup/setup-polly-jest/issues/23#issuecomment-890494186
 // Polly.register(NodeHttpAdapter);
@@ -43,8 +43,8 @@ describe("verifyHcaptchaToken", () => {
 
     expect(success).toEqual(false);
     expect(errorCodes).toEqual([
-      HcaptchaError.MissingInputResponse,
-      HcaptchaError.MissingInputSecret,
+      "missing-input-response",
+      "missing-input-secret",
     ]);
 
     expect(res).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe("verifyHcaptchaToken", () => {
     const { success, errorCodes } = res;
 
     expect(success).toEqual(false);
-    expect(errorCodes).toEqual([HcaptchaError.MissingInputResponse]);
+    expect(errorCodes).toEqual(["missing-input-response"]);
 
     expect(res).toMatchSnapshot();
   });
@@ -74,7 +74,7 @@ describe("verifyHcaptchaToken", () => {
     const { success, errorCodes } = res;
 
     expect(success).toEqual(false);
-    expect(errorCodes).toEqual([HcaptchaError.InvalidInputResponse]);
+    expect(errorCodes).toEqual(["invalid-input-response"]);
 
     expect(res).toMatchSnapshot();
   });
@@ -92,7 +92,7 @@ describe("verifyHcaptchaToken", () => {
 
     // NOTE: this error is returned by the API
     // but is not documented in the hCaptcha developer docs
-    expect(errorCodes).toEqual([HcaptchaError.NotUsingDummySecret]);
+    expect(errorCodes).toEqual(["not-using-dummy-secret"]);
 
     expect(res).toMatchSnapshot({
       challengeTimestamp: expect.any(String),
@@ -113,7 +113,7 @@ describe("verifyHcaptchaToken", () => {
 
     // NOTE: this error is returned by the API
     // but is not documented in the hCaptcha developer docs
-    expect(errorCodes).toEqual([HcaptchaError.InvalidSiteKey]);
+    expect(errorCodes).toEqual(["invalid-sitekey"]);
 
     expect(res).toMatchSnapshot();
   });
@@ -133,7 +133,7 @@ describe("verifyHcaptchaToken", () => {
 
     // NOTE: this error is returned by the API
     // but is not documented in the hCaptcha developer docs
-    expect(errorCodes).toEqual([HcaptchaError.InvalidRemoteIp]);
+    expect(errorCodes).toEqual(["invalid-remoteip"]);
 
     expect(res).toMatchSnapshot();
   });

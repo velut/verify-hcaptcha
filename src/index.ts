@@ -101,30 +101,29 @@ export interface HcaptchaResponse {
  * @see {@link HcaptchaResponse}
  * @see {@link https://docs.hcaptcha.com/#siteverify-error-codes-table}
  */
-export enum HcaptchaError {
+export type HcaptchaError =
   /** Secret key is missing */
-  MissingInputSecret = "missing-input-secret",
+  | "missing-input-secret"
   /** Secret key is invalid */
-  InvalidInputSecret = "invalid-input-secret",
+  | "invalid-input-secret"
   /** User response token is missing */
-  MissingInputResponse = "missing-input-response",
+  | "missing-input-response"
   /** User response token is invalid */
-  InvalidInputResponse = "invalid-input-response",
+  | "invalid-input-response"
   /** Site key is invalid */
-  InvalidSiteKey = "invalid-sitekey",
+  | "invalid-sitekey"
   /** Remote user IP is invalid */
-  InvalidRemoteIp = "invalid-remoteip",
+  | "invalid-remoteip"
   /** Request is invalid */
-  BadRequest = "bad-request",
+  | "bad-request"
   /** User response token is invalid or has already been checked */
-  InvalidOrAlreadySeenResponse = "invalid-or-already-seen-response",
+  | "invalid-or-already-seen-response"
   /** Must use the test site key when using a test verification token */
-  NotUsingDummyPassCode = "not-using-dummy-passcode",
+  | "not-using-dummy-passcode"
   /** Must use the test secret key when using a test verification token */
-  NotUsingDummySecret = "not-using-dummy-secret",
+  | "not-using-dummy-secret"
   /** The site key is not associated to the secret key */
-  SiteKeySecretMismatch = "sitekey-secret-mismatch",
-}
+  | "sitekey-secret-mismatch";
 
 /**
  * `RawHcaptchaResponse` represents the raw response to the verification challenge
