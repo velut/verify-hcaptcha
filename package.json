@@ -39,6 +39,7 @@
     "test:ci": "dts test --runInBand --coverage --ci",
     "lint": "dts lint",
     "prepare": "dts build",
+    "pre-push": "yarn && yarn lint && yarn build && yarn test:cov",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "release": "np"
