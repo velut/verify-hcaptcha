@@ -3,7 +3,6 @@
 
 import NodeHttpAdapter from "@pollyjs/adapter-node-http";
 import FSPersister from "@pollyjs/persister-fs";
-import nock from "nock";
 import * as path from "path";
 import { setupPolly } from "setup-polly-jest";
 import { verifyHcaptchaToken } from "../src";
@@ -194,24 +193,5 @@ describe("verifyHcaptchaToken", () => {
     expect(res).toMatchSnapshot({
       challengeTimestamp: expect.any(String),
     });
-  });
-});
-
-describe("verifyHcaptchaToken", () => {
-  it("throws when the HTTP POST request fails", async () => {
-    expect.assertions(1);
-
-    nock("https://hcaptcha.com")
-      .post("/siteverify")
-      .replyWithError("Test request failed");
-
-    try {
-      await verifyHcaptchaToken({
-        secretKey: publisherSecretKey,
-        token: publisherResponse,
-      });
-    } catch (err) {
-      expect(err).toBeDefined();
-    }
   });
 });
