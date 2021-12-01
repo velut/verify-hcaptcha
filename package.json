@@ -37,17 +37,12 @@
     "test": "dts test --runInBand",
     "test:cov": "dts test --runInBand --coverage",
     "test:ci": "dts test --runInBand --coverage --ci",
-    "lint": "dts lint",
-    "prepare": "dts build",
+    "lint": "dts lint src test",
+    "prepare": "husky install && dts build --target node",
     "pre-push": "yarn && yarn lint && yarn build && yarn test:cov",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "release": "np"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "dts lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -81,6 +76,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "15.0.0",
+    "@commitlint/config-conventional": "15.0.0",
     "@pollyjs/adapter-node-http": "6.0.0",
     "@pollyjs/core": "6.0.0",
     "@pollyjs/persister-fs": "6.0.0",
