@@ -90,7 +90,7 @@
     "husky": "7.0.4",
     "nock": "13.2.1",
     "np": "7.6.0",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "setup-polly-jest": "0.10.0",
     "size-limit": "7.0.5",
     "tslib": "2.3.1",
