@@ -1,6 +1,6 @@
 # verify-hcaptcha
 
-[![Build status](https://img.shields.io/github/workflow/status/velut/verify-hcaptcha/CI)](https://github.com/velut/verify-hcaptcha/actions?query=workflow%3ACI)
+[![Build status](https://img.shields.io/github/actions/workflow/status/velut/verify-hcaptcha/main.yml?branch=main)](https://github.com/velut/verify-hcaptcha/actions?query=workflow%3ACI)
 [![Coverage](https://img.shields.io/codecov/c/gh/velut/verify-hcaptcha)](https://codecov.io/gh/velut/verify-hcaptcha)
 [![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/verify-hcaptcha)
 ![Language](https://img.shields.io/github/languages/top/velut/verify-hcaptcha)
