@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`verifyHcaptchaToken fails when a test secret key is not used for a test token 1`] = `
-Object {
+{
   "challengeTimestamp": Any<String>,
   "credit": false,
-  "errorCodes": Array [
+  "errorCodes": [
     "not-using-dummy-secret",
   ],
   "hostname": "dummy-key-pass",
@@ -15,10 +15,10 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken fails when no form data is sent 1`] = `
-Object {
+{
   "challengeTimestamp": undefined,
   "credit": undefined,
-  "errorCodes": Array [
+  "errorCodes": [
     "missing-input-response",
     "missing-input-secret",
   ],
@@ -30,10 +30,10 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken fails when no token is sent 1`] = `
-Object {
+{
   "challengeTimestamp": undefined,
   "credit": undefined,
-  "errorCodes": Array [
+  "errorCodes": [
     "missing-input-response",
   ],
   "hostname": undefined,
@@ -44,10 +44,10 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken fails when the form data is invalid 1`] = `
-Object {
+{
   "challengeTimestamp": undefined,
   "credit": undefined,
-  "errorCodes": Array [
+  "errorCodes": [
     "invalid-input-response",
   ],
   "hostname": undefined,
@@ -58,10 +58,10 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken fails when the remote IP is invalid 1`] = `
-Object {
+{
   "challengeTimestamp": undefined,
   "credit": undefined,
-  "errorCodes": Array [
+  "errorCodes": [
     "invalid-remoteip",
   ],
   "hostname": undefined,
@@ -72,10 +72,10 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken fails when the site key is invalid 1`] = `
-Object {
+{
   "challengeTimestamp": undefined,
   "credit": undefined,
-  "errorCodes": Array [
+  "errorCodes": [
     "invalid-sitekey",
   ],
   "hostname": undefined,
@@ -86,13 +86,13 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken succeeds with valid form data for the enterprise bot user 1`] = `
-Object {
+{
   "challengeTimestamp": Any<String>,
   "credit": undefined,
   "errorCodes": undefined,
   "hostname": "dummy-key-pass",
   "score": 1,
-  "scoreReasons": Array [
+  "scoreReasons": [
     "bot",
   ],
   "success": true,
@@ -100,13 +100,13 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken succeeds with valid form data for the enterprise safe user 1`] = `
-Object {
+{
   "challengeTimestamp": Any<String>,
   "credit": undefined,
   "errorCodes": undefined,
   "hostname": "dummy-key-pass",
   "score": 0,
-  "scoreReasons": Array [
+  "scoreReasons": [
     "safe",
   ],
   "success": true,
@@ -114,7 +114,7 @@ Object {
 `;
 
 exports[`verifyHcaptchaToken succeeds with valid form data for the test publisher 1`] = `
-Object {
+{
   "challengeTimestamp": Any<String>,
   "credit": false,
   "errorCodes": undefined,
