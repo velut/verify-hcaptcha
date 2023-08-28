@@ -34,7 +34,7 @@ devDependencies:
     version: 2.0.3(@babel/plugin-syntax-flow@7.22.5)(@babel/plugin-transform-react-jsx@7.22.5)(@types/node@20.5.7)
   eslint-plugin-prettier:
     specifier: 4.2.1
-    version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.48.0)(prettier@2.8.8)
+    version: 4.2.1(eslint@8.48.0)(prettier@3.0.2)
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -42,8 +42,8 @@ devDependencies:
     specifier: 13.3.2
     version: 13.3.2
   prettier:
-    specifier: 2.8.8
-    version: 2.8.8
+    specifier: 3.0.2
+    version: 3.0.2
   setup-polly-jest:
     specifier: 0.11.0
     version: 0.11.0(@pollyjs/core@6.0.6)
@@ -347,6 +347,7 @@ packages:
   /@babel/highlight@7.22.13:
     resolution: {integrity: sha512-C/BaXcnnvBCmHTpz/VGZ8jgtE2aYlW4hxDhseJAWZb7gqGM/qtCK6iZUb0TyKFf7BOUsBH7Q7fkRsDRhg1XklQ==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dependencies:
       '@babel/helper-validator-identifier': 7.22.5
       chalk: 2.4.2
@@ -4140,6 +4141,22 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
+  /eslint-plugin-prettier@4.2.1(eslint@8.48.0)(prettier@3.0.2):
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.48.0
+      prettier: 3.0.2
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
   /eslint-plugin-react-hooks@4.6.0(eslint@8.48.0):
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
     engines: {node: '>=10'}
@@ -6612,6 +6629,12 @@ packages:
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier@3.0.2:
+    resolution: {integrity: sha512-o2YR9qtniXvwEZlOKbveKfDQVyqxbEIWn48Z8m3ZJjBjcCmUy3xZGIv+7AkaeuaTr6yPXJjwv07ZWlsWbEy1rQ==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
