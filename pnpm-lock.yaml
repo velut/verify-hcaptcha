@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^29.5.4
     version: 29.5.4
   '@types/setup-polly-jest':
-    specifier: 0.5.2
-    version: 0.5.2
+    specifier: 0.5.3
+    version: 0.5.3
   dts-cli:
     specifier: 2.0.3
     version: 2.0.3(@babel/plugin-syntax-flow@7.22.5)(@babel/plugin-transform-react-jsx@7.22.5)(@types/node@20.5.7)
@@ -2426,8 +2426,8 @@ packages:
       '@types/node': 20.5.7
     dev: true
 
-  /@types/setup-polly-jest@0.5.2:
-    resolution: {integrity: sha512-cvTA/xuf6WLjt7F8wSt6h5OU7c++ukXX6z959DPDnRwHq8rVcZPeqtq6lisKMaJP67Xkqn5vfCUftY2LphZntw==}
+  /@types/setup-polly-jest@0.5.3:
+    resolution: {integrity: sha512-Y5zUly7aFfCU0gXpKWN4V8kFGGUBL0SkdfzjUAqjIagZo1SSeYLjjZUzNoomsv1TIP9wSFNXEe6Ix8IiSYqK1w==}
     dependencies:
       '@pollyjs/adapter': 6.0.6
       '@pollyjs/core': 6.0.6
