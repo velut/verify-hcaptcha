@@ -39,8 +39,8 @@ devDependencies:
     specifier: 8.0.3
     version: 8.0.3
   nock:
-    specifier: 13.3.7
-    version: 13.3.7
+    specifier: 13.4.0
+    version: 13.4.0
   prettier:
     specifier: 2.8.8
     version: 2.8.8
@@ -2087,7 +2087,7 @@ packages:
       '@pollyjs/adapter': 6.0.6
       '@pollyjs/utils': 6.0.6
       lodash-es: 4.17.21
-      nock: 13.3.7
+      nock: 13.4.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6331,8 +6331,8 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: true
 
-  /nock@13.3.7:
-    resolution: {integrity: sha512-z3voRxo6G0JxqCsjuzERh1ReFC4Vp2b7JpSgcMJB6jnJbUszf88awAeQLIID2UNMwbMh9/Zm5sFscagj0QYHEg==}
+  /nock@13.4.0:
+    resolution: {integrity: sha512-W8NVHjO/LCTNA64yxAPHV/K47LpGYcVzgKd3Q0n6owhwvD0Dgoterc25R4rnZbckJEb6Loxz1f5QMuJpJnbSyQ==}
     engines: {node: '>= 10.13'}
     dependencies:
       debug: 4.3.4
