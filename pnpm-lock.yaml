@@ -25,7 +25,7 @@ devDependencies:
     version: 8.2.4(size-limit@8.2.4)
   '@types/jest':
     specifier: ^29.5.4
-    version: 29.5.10
+    version: 29.5.11
   '@types/setup-polly-jest':
     specifier: 0.5.5
     version: 0.5.5
@@ -2410,8 +2410,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest@29.5.10:
-    resolution: {integrity: sha512-tE4yxKEphEyxj9s4inideLHktW/x6DwesIwWZ9NN1FKf9zbJYsnhBoA9vrHA/IuIOKwPa5PcFBNV4lpMIOEzyQ==}
+  /@types/jest@29.5.11:
+    resolution: {integrity: sha512-S2mHmYIVe13vrm6q4kN6fLYYAka15ALQki/vgDC3mIukEOx8WJlv0kQPM+d4w8Gp6u0uSdKND04IlTXBv0rwnQ==}
     dependencies:
       expect: 29.6.4
       pretty-format: 29.6.3
@@ -3753,7 +3753,7 @@ packages:
       '@rollup/plugin-node-resolve': 15.2.1(rollup@3.28.1)
       '@rollup/plugin-replace': 5.0.2(rollup@3.28.1)
       '@rollup/plugin-terser': 0.4.3(rollup@3.28.1)
-      '@types/jest': 29.5.10
+      '@types/jest': 29.5.11
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.48.0)(typescript@5.3.2)
       '@typescript-eslint/parser': 5.62.0(eslint@8.48.0)(typescript@5.3.2)
       ansi-escapes: 4.3.2
