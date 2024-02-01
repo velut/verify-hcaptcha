@@ -84,7 +84,7 @@
     "@types/setup-polly-jest": "^0.5.5",
     "dts-cli": "^2.0.3",
     "eslint-plugin-prettier": "^5.1.2",
-    "husky": "^8.0.3",
+    "husky": "^9.0.7",
     "nock": "^13.4.0",
     "prettier": "^3.1.1",
     "setup-polly-jest": "^0.11.0",
