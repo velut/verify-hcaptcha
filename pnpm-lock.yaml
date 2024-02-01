@@ -31,7 +31,7 @@ devDependencies:
     version: 0.5.5
   dts-cli:
     specifier: ^2.0.3
-    version: 2.0.3(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(@types/node@20.10.6)
+    version: 2.0.4(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(@types/node@20.10.6)
   eslint-plugin-prettier:
     specifier: ^5.1.2
     version: 5.1.2(eslint@8.56.0)(prettier@3.2.4)
@@ -3753,8 +3753,8 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dts-cli@2.0.3(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(@types/node@20.10.6):
-    resolution: {integrity: sha512-OEgH0AJLu/ey/bHwb+EBXnCm5pLxmq4WMdzHFzYqsJarPqCjMOK15MRUAIJskHoa7VemOqM9frf24LH3wiQ+/w==}
+  /dts-cli@2.0.4(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(@types/node@20.10.6):
+    resolution: {integrity: sha512-5UQANG6APcPN4O9QtTmzH69jCFOac8G3rScD6sC67D+g5irUox+5s6HTmj/CKg0wu8N5KlZMSou+NyDeL8Zveg==}
     engines: {node: ^16.0.0 || >=18.0.0}
     hasBin: true
     dependencies:
