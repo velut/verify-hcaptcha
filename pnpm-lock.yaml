@@ -9,8 +9,8 @@ devDependencies:
     specifier: ^19.0.3
     version: 19.0.3(@types/node@20.10.6)(typescript@5.3.3)
   '@commitlint/config-conventional':
-    specifier: ^18.4.3
-    version: 18.6.0
+    specifier: ^19.0.3
+    version: 19.0.3
   '@pollyjs/adapter-node-http':
     specifier: ^6.0.6
     version: 6.0.6
@@ -1341,10 +1341,11 @@ packages:
       - typescript
     dev: true
 
-  /@commitlint/config-conventional@18.6.0:
-    resolution: {integrity: sha512-CDCOf2eJz9D/TL44IBks0stM9TmdLCNE2B48owIU3YCadwzts/bobXPScagIgPQF6hhKYMEdj5zpUDlmbwuqwQ==}
+  /@commitlint/config-conventional@19.0.3:
+    resolution: {integrity: sha512-vh0L8XeLaEzTe8VCxSd0gAFvfTK0RFolrzw4o431bIuWJfi/yRCHJlsDwus7wW2eJaFFDR0VFXJyjGyDQhi4vA==}
     engines: {node: '>=v18'}
     dependencies:
+      '@commitlint/types': 19.0.3
       conventional-changelog-conventionalcommits: 7.0.2
     dev: true
 
