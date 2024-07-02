@@ -43,11 +43,6 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "trailingComma": "es5"
-  },
   "size-limit": [
     {
       "path": "dist/verify-hcaptcha.cjs.production.min.js",
