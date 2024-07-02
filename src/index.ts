@@ -63,36 +63,36 @@ import * as https from "https";
  * @see {@link https://docs.hcaptcha.com/#verify-the-user-response-server-side}
  */
 export interface HcaptchaResponse {
-  /**
-   * True if the token is valid and meets the specified security criteria
-   * (for example, if the site key is associated to the secret key)
-   */
-  readonly success: boolean;
+	/**
+	 * True if the token is valid and meets the specified security criteria
+	 * (for example, if the site key is associated to the secret key)
+	 */
+	readonly success: boolean;
 
-  /**
-   * Optional: UTC timestamp of the challenge in ISO 8601 format
-   * (for example, `2021-10-02T18:12:10.149Z`)
-   */
-  readonly challengeTimestamp?: string;
+	/**
+	 * Optional: UTC timestamp of the challenge in ISO 8601 format
+	 * (for example, `2021-10-02T18:12:10.149Z`)
+	 */
+	readonly challengeTimestamp?: string;
 
-  /** Optional: hostname of the website where the challenge was solved */
-  readonly hostname?: string;
+	/** Optional: hostname of the website where the challenge was solved */
+	readonly hostname?: string;
 
-  /** Optional: true if the response will be credited */
-  readonly credit?: boolean;
+	/** Optional: true if the response will be credited */
+	readonly credit?: boolean;
 
-  /**
-   * Optional: list of error codes
-   *
-   * @see {@link HcaptchaError}
-   */
-  readonly errorCodes?: HcaptchaError[];
+	/**
+	 * Optional: list of error codes
+	 *
+	 * @see {@link HcaptchaError}
+	 */
+	readonly errorCodes?: HcaptchaError[];
 
-  /** Enterprise-only feature: score for malicious activity */
-  readonly score?: number;
+	/** Enterprise-only feature: score for malicious activity */
+	readonly score?: number;
 
-  /** Enterprise-only feature: list of reasons for the malicious activity score */
-  readonly scoreReasons?: string[];
+	/** Enterprise-only feature: list of reasons for the malicious activity score */
+	readonly scoreReasons?: string[];
 }
 
 /**
@@ -102,28 +102,28 @@ export interface HcaptchaResponse {
  * @see {@link https://docs.hcaptcha.com/#siteverify-error-codes-table}
  */
 export type HcaptchaError =
-  /** Secret key is missing */
-  | "missing-input-secret"
-  /** Secret key is invalid */
-  | "invalid-input-secret"
-  /** User response token is missing */
-  | "missing-input-response"
-  /** User response token is invalid */
-  | "invalid-input-response"
-  /** Site key is invalid */
-  | "invalid-sitekey"
-  /** Remote user IP is invalid */
-  | "invalid-remoteip"
-  /** Request is invalid */
-  | "bad-request"
-  /** User response token is invalid or has already been checked */
-  | "invalid-or-already-seen-response"
-  /** Must use the test site key when using a test verification token */
-  | "not-using-dummy-passcode"
-  /** Must use the test secret key when using a test verification token */
-  | "not-using-dummy-secret"
-  /** The site key is not associated to the secret key */
-  | "sitekey-secret-mismatch";
+	/** Secret key is missing */
+	| "missing-input-secret"
+	/** Secret key is invalid */
+	| "invalid-input-secret"
+	/** User response token is missing */
+	| "missing-input-response"
+	/** User response token is invalid */
+	| "invalid-input-response"
+	/** Site key is invalid */
+	| "invalid-sitekey"
+	/** Remote user IP is invalid */
+	| "invalid-remoteip"
+	/** Request is invalid */
+	| "bad-request"
+	/** User response token is invalid or has already been checked */
+	| "invalid-or-already-seen-response"
+	/** Must use the test site key when using a test verification token */
+	| "not-using-dummy-passcode"
+	/** Must use the test secret key when using a test verification token */
+	| "not-using-dummy-secret"
+	/** The site key is not associated to the secret key */
+	| "sitekey-secret-mismatch";
 
 /**
  * `RawHcaptchaResponse` represents the raw response to the verification challenge
@@ -133,13 +133,13 @@ export type HcaptchaError =
  * @see {@link https://docs.hcaptcha.com/#verify-the-user-response-server-side}
  */
 export interface RawHcaptchaResponse {
-  readonly success: boolean;
-  readonly challenge_ts?: string;
-  readonly hostname?: string;
-  readonly credit?: boolean;
-  readonly "error-codes"?: string[];
-  readonly score?: number;
-  readonly score_reason?: string[];
+	readonly success: boolean;
+	readonly challenge_ts?: string;
+	readonly hostname?: string;
+	readonly credit?: boolean;
+	readonly "error-codes"?: string[];
+	readonly score?: number;
+	readonly score_reason?: string[];
 }
 
 /**
@@ -154,40 +154,40 @@ export interface RawHcaptchaResponse {
  * @returns a {@link HcaptchaResponse} with the verification result
  */
 export async function verifyHcaptchaToken({
-  token,
-  secretKey,
-  siteKey,
-  remoteIp,
+	token,
+	secretKey,
+	siteKey,
+	remoteIp,
 }: {
-  token: string;
-  secretKey: string;
-  siteKey?: string;
-  remoteIp?: string;
+	token: string;
+	secretKey: string;
+	siteKey?: string;
+	remoteIp?: string;
 }): Promise<HcaptchaResponse> {
-  const {
-    success,
-    challenge_ts: challengeTimestamp,
-    hostname,
-    credit,
-    "error-codes": rawErrorCodes,
-    score,
-    score_reason: scoreReasons,
-  } = await rawVerifyHcaptchaToken({
-    token,
-    secretKey,
-    siteKey,
-    remoteIp,
-  });
+	const {
+		success,
+		challenge_ts: challengeTimestamp,
+		hostname,
+		credit,
+		"error-codes": rawErrorCodes,
+		score,
+		score_reason: scoreReasons,
+	} = await rawVerifyHcaptchaToken({
+		token,
+		secretKey,
+		siteKey,
+		remoteIp,
+	});
 
-  return {
-    success,
-    challengeTimestamp,
-    hostname,
-    credit,
-    errorCodes: rawErrorCodes as HcaptchaError[] | undefined,
-    score,
-    scoreReasons,
-  };
+	return {
+		success,
+		challengeTimestamp,
+		hostname,
+		credit,
+		errorCodes: rawErrorCodes as HcaptchaError[] | undefined,
+		score,
+		scoreReasons,
+	};
 }
 
 /**
@@ -202,87 +202,83 @@ export async function verifyHcaptchaToken({
  * @returns a {@link RawHcaptchaResponse} with the verification result
  */
 export async function rawVerifyHcaptchaToken({
-  token,
-  secretKey,
-  siteKey,
-  remoteIp,
+	token,
+	secretKey,
+	siteKey,
+	remoteIp,
 }: {
-  token: string;
-  secretKey: string;
-  siteKey?: string;
-  remoteIp?: string;
+	token: string;
+	secretKey: string;
+	siteKey?: string;
+	remoteIp?: string;
 }): Promise<RawHcaptchaResponse> {
-  const form = buildForm({ token, secretKey, siteKey, remoteIp });
-  const data = await postToHcaptcha({ form });
-  return data;
+	const form = buildForm({ token, secretKey, siteKey, remoteIp });
+	const data = await postToHcaptcha({ form });
+	return data;
 }
 
 function buildForm({
-  token,
-  secretKey,
-  siteKey,
-  remoteIp,
+	token,
+	secretKey,
+	siteKey,
+	remoteIp,
 }: {
-  token?: string;
-  secretKey?: string;
-  siteKey?: string;
-  remoteIp?: string;
+	token?: string;
+	secretKey?: string;
+	siteKey?: string;
+	remoteIp?: string;
 }): string {
-  const form = new URLSearchParams();
-  if (token) {
-    form.append("response", token);
-  }
+	const form = new URLSearchParams();
+	if (token) {
+		form.append("response", token);
+	}
 
-  if (secretKey) {
-    form.append("secret", secretKey);
-  }
+	if (secretKey) {
+		form.append("secret", secretKey);
+	}
 
-  if (siteKey) {
-    form.append("sitekey", siteKey);
-  }
+	if (siteKey) {
+		form.append("sitekey", siteKey);
+	}
 
-  if (remoteIp) {
-    form.append("remoteip", remoteIp);
-  }
+	if (remoteIp) {
+		form.append("remoteip", remoteIp);
+	}
 
-  return form.toString();
+	return form.toString();
 }
 
-function postToHcaptcha({
-  form,
-}: {
-  form: string;
-}): Promise<RawHcaptchaResponse> {
-  const options: https.RequestOptions = {
-    host: "hcaptcha.com",
-    path: "/siteverify",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Content-Length": Buffer.byteLength(form),
-    },
-  };
+function postToHcaptcha({ form }: { form: string }): Promise<RawHcaptchaResponse> {
+	const options: https.RequestOptions = {
+		host: "hcaptcha.com",
+		path: "/siteverify",
+		method: "POST",
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+			"Content-Length": Buffer.byteLength(form),
+		},
+	};
 
-  return new Promise((resolve, reject) => {
-    // See https://nodejs.org/api/http.html#http_class_http_clientrequest
-    const req = https.request(options, (res) => {
-      const chunks: string[] = [];
-      res.setEncoding("utf-8");
-      res
-        .on("data", (data) => {
-          chunks.push(data);
-        })
-        .on("end", () => {
-          const data = JSON.parse(chunks.join("")) as RawHcaptchaResponse;
-          resolve(data);
-        });
-    });
+	return new Promise((resolve, reject) => {
+		// See https://nodejs.org/api/http.html#http_class_http_clientrequest
+		const req = https.request(options, (res) => {
+			const chunks: string[] = [];
+			res.setEncoding("utf-8");
+			res
+				.on("data", (data) => {
+					chunks.push(data);
+				})
+				.on("end", () => {
+					const data = JSON.parse(chunks.join("")) as RawHcaptchaResponse;
+					resolve(data);
+				});
+		});
 
-    req.on("error", (err) => {
-      reject(err);
-    });
+		req.on("error", (err) => {
+			reject(err);
+		});
 
-    req.write(form);
-    req.end();
-  });
+		req.write(form);
+		req.end();
+	});
 }

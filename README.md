@@ -54,17 +54,17 @@ Verify a token submitted by a user:
 import { verifyHcaptchaToken } from "verify-hcaptcha";
 
 (async () => {
-  const result = await verifyHcaptchaToken({
-    token: "USER-SUBMITTED-RESPONSE-TOKEN",
-    secretKey: "YOUR-SECRET-KEY",
-    siteKey: "YOUR-SITE-KEY",
-  });
+	const result = await verifyHcaptchaToken({
+		token: "USER-SUBMITTED-RESPONSE-TOKEN",
+		secretKey: "YOUR-SECRET-KEY",
+		siteKey: "YOUR-SITE-KEY",
+	});
 
-  if (result.success) {
-    console.log("User is human");
-  } else {
-    console.log("User is robot");
-  }
+	if (result.success) {
+		console.log("User is human");
+	} else {
+		console.log("User is robot");
+	}
 })();
 ```
 
@@ -74,17 +74,17 @@ Verify a token submitted by a user and get the raw response from hCaptcha:
 import { rawVerifyHcaptchaToken } from "verify-hcaptcha";
 
 (async () => {
-  const result = await rawVerifyHcaptchaToken({
-    token: "USER-SUBMITTED-RESPONSE-TOKEN",
-    secretKey: "YOUR-SECRET-KEY",
-    siteKey: "YOUR-SITE-KEY",
-  });
+	const result = await rawVerifyHcaptchaToken({
+		token: "USER-SUBMITTED-RESPONSE-TOKEN",
+		secretKey: "YOUR-SECRET-KEY",
+		siteKey: "YOUR-SITE-KEY",
+	});
 
-  if (result.success) {
-    console.log("User is human");
-  } else {
-    console.log("User is robot");
-  }
+	if (result.success) {
+		console.log("User is human");
+	} else {
+		console.log("User is robot");
+	}
 })();
 ```
 

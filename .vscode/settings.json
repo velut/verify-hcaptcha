@@ -1,12 +1,12 @@
 {
-  "cSpell.ignoreWords": [
-    "Edoardo",
-    "Scibona",
-    "commitlint",
-    "hcaptcha",
-    "passcode",
-    "pollyjs",
-    "remoteip",
-    "siteverify"
-  ]
+	"cSpell.ignoreWords": [
+		"commitlint",
+		"edoardo",
+		"hcaptcha",
+		"passcode",
+		"pollyjs",
+		"remoteip",
+		"scibona",
+		"siteverify"
+	]
 }
