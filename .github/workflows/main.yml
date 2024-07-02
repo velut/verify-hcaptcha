@@ -7,35 +7,37 @@ on:
 
 jobs:
   # See https://stackoverflow.com/a/73624365/16109047
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     if: github.repository == 'velut/verify-hcaptcha' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-          cache: "pnpm"
+          node-version: lts/*
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Lint
-        run: pnpm lint
+        run: bun run lint
 
       - name: Test
-        run: pnpm test:ci
+        run: bun run test:ci
 
       - name: Build
-        run: pnpm build
+        run: bun run build
+
+      - name: Are the types wrong
+        run: bun run attw
 
       - name: CodeCov
         uses: codecov/codecov-action@v4.5.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
