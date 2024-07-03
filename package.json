@@ -1,7 +1,7 @@
 {
 	"name": "verify-hcaptcha",
 	"version": "1.0.0",
-	"description": "A no dependencies, fully typed library to verify hCaptcha tokens submitted by users",
+	"description": "A fully typed library to verify hCaptcha.com tokens submitted by users when solving captcha challenges",
 	"license": "MIT",
 	"author": {
 		"name": "Edoardo Scibona",
@@ -55,6 +55,9 @@
 		"format": "prettier --write .",
 		"pre-push": "bun install && bun run lint && bun run build && bun run test:ci && bun run attw",
 		"release": "np --no-cleanup"
+	},
+	"dependencies": {
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@arethetypeswrong/cli": "^0.15.3",
