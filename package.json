@@ -1,6 +1,6 @@
 {
 	"name": "verify-hcaptcha",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "A fully typed library to verify hCaptcha.com tokens submitted by users when solving captcha challenges",
 	"license": "MIT",
 	"author": {
