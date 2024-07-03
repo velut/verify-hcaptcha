@@ -28,7 +28,7 @@ if (result.success) {
 
 import { z } from "zod";
 
-const HcaptchaResponse = z
+const hCaptchaResponseSchema = z
 	.object({
 		success: z.boolean(),
 		challenge_ts: z.string().optional(),
@@ -94,7 +94,7 @@ const HcaptchaResponse = z
 `HcaptchaResponse` represents the response to the verification challenge performed by calling {@link verifyHcaptchaToken}.
 @see {@link https://docs.hcaptcha.com/#verify-the-user-response-server-side}
 */
-export type HcaptchaResponse = z.infer<typeof HcaptchaResponse>;
+export type HcaptchaResponse = z.infer<typeof hCaptchaResponseSchema>;
 
 /**
 `verifyHcaptchaToken` verifies with the hCaptcha.com API that the response token obtained
@@ -133,5 +133,5 @@ export async function verifyHcaptchaToken({
 		body: form.toString(),
 	});
 	const json = await response.json();
-	return HcaptchaResponse.parse(json);
+	return hCaptchaResponseSchema.parse(json);
 }
