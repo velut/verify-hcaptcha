@@ -51,7 +51,7 @@ bun add verify-hcaptcha
 Verify a token submitted by a user:
 
 ```typescript
-import { verifyHcaptchaToken } from 'verify-hcaptcha';
+import { verifyHcaptchaToken } from "verify-hcaptcha";
 
 const result = await verifyHcaptchaToken({
 	token: "USER-SUBMITTED-RESPONSE-TOKEN",
