@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - None
 
+## [2.1.0] - 2025-02-21
+
+### Changed
+
+- Upgraded zod to `v3.24`.
+
 ## [2.0.0] - 2024-07-03
 
 This package is now a [pure ESM package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) and uses the [fetch global function](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to perform network requests.
@@ -32,6 +38,9 @@ These are the current package's exports:
 
 ## [1.0.0] - 2021-10-26
 
-[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v2.0.0...HEAD
+Initial version.
+
+[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/velut/verify-hcaptcha/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/velut/verify-hcaptcha/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/velut/verify-hcaptcha/tree/v1.0.0
