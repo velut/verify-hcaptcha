@@ -27,48 +27,50 @@ if (result.success) {
 @packageDocumentation
 */
 
-import { z } from "zod";
+import * as z from "zod/mini";
 
-const hCaptchaResponseSchema = z
-	.object({
-		success: z.boolean(),
-		challenge_ts: z.string().optional(),
-		hostname: z.string().optional(),
-		credit: z.boolean().optional(),
-		"error-codes": z
-			.array(
-				z.union([
-					/** Secret key is missing. */
-					z.literal("missing-input-secret"),
-					/** Secret key is invalid. */
-					z.literal("invalid-input-secret"),
-					/** User response token is missing. */
-					z.literal("missing-input-response"),
-					/** User response token is invalid. */
-					z.literal("invalid-input-response"),
-					/** Site key is invalid. */
-					z.literal("invalid-sitekey"),
-					/** Remote user IP is missing. */
-					z.literal("missing-remoteip"),
-					/** Remote user IP is invalid. */
-					z.literal("invalid-remoteip"),
-					/** Request is invalid. */
-					z.literal("bad-request"),
-					/** User response token is invalid or has already been checked. */
-					z.literal("invalid-or-already-seen-response"),
-					/** Must use the test site key when using a test verification token. */
-					z.literal("not-using-dummy-passcode"),
-					/** Must use the test secret key when using a test verification token. */
-					z.literal("not-using-dummy-secret"),
-					/** The site key is not associated to the secret key. */
-					z.literal("sitekey-secret-mismatch"),
-				]),
-			)
-			.optional(),
-		score: z.number().optional(),
-		"score-reason": z.array(z.string()).optional(),
-	})
-	.transform(({ success, hostname, credit, score, ...rest }) => ({
+export type ErrorCodes =
+	/** Secret key is missing. */
+	| "missing-input-secret"
+	/** Secret key is invalid. */
+	| "invalid-input-secret"
+	/** User response token is missing. */
+	| "missing-input-response"
+	/** User response token is invalid. */
+	| "invalid-input-response"
+	/** User response token is expired. */
+	| "expired-input-response"
+	/** User response token was already verified once. */
+	| "already-seen-response"
+	/** Request is invalid. */
+	| "bad-request"
+	/** Remote user IP is missing. */
+	| "missing-remoteip"
+	/** Remote user IP is invalid. */
+	| "invalid-remoteip"
+	/** Must use the test site key when using a test verification token. */
+	| "not-using-dummy-passcode"
+	/** The site key is not associated to the secret key. */
+	| "sitekey-secret-mismatch"
+	/** Site key is invalid (Not listed on hcaptcha docs). */
+	| "invalid-sitekey"
+	/** Must use the test secret key when using a test verification token (Not listed on hcaptcha docs). */
+	| "not-using-dummy-secret";
+
+const rawHcaptchaResponseSchema = z.object({
+	success: z.boolean(),
+	challenge_ts: z.optional(z.string()),
+	hostname: z.optional(z.string()),
+	credit: z.optional(z.boolean()),
+	// See https://github.com/colinhacks/zod/discussions/4934 and https://github.com/colinhacks/zod/discussions/4939.
+	"error-codes": z.optional(z.array(z.string() as z.ZodMiniType<ErrorCodes | (string & {})>)),
+	score: z.optional(z.number()),
+	"score-reason": z.optional(z.array(z.string())),
+});
+
+const hCaptchaResponseSchema = z.pipe(
+	rawHcaptchaResponseSchema,
+	z.transform(({ success, hostname, credit, score, ...rest }) => ({
 		/** True if the token is valid and meets the specified security criteria (e.g., if the site key is associated to the secret key). */
 		success,
 
@@ -89,7 +91,8 @@ const hCaptchaResponseSchema = z
 
 		/** Enterprise-only feature: list of reasons for the malicious activity score. */
 		scoreReasons: rest["score-reason"],
-	}));
+	})),
+);
 
 /**
 `HcaptchaResponse` represents the response to the verification challenge performed by calling {@link verifyHcaptchaToken}.
