@@ -121,12 +121,8 @@ export async function verifyHcaptchaToken({
 	const form = new URLSearchParams();
 	form.append("response", token);
 	form.append("secret", secretKey);
-	if (siteKey) {
-		form.append("sitekey", siteKey);
-	}
-	if (remoteIp) {
-		form.append("remoteip", remoteIp);
-	}
+	if (siteKey) form.append("sitekey", siteKey);
+	if (remoteIp) form.append("remoteip", remoteIp);
 	const response = await fetch("https://api.hcaptcha.com/siteverify", {
 		method: "POST",
 		headers: { "Content-Type": "application/x-www-form-urlencoded" },
