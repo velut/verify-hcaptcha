@@ -11,9 +11,10 @@ Verify a token submitted by a user:
 import { verifyHcaptchaToken } from 'verify-hcaptcha';
 
 const result = await verifyHcaptchaToken({
-	token: "USER-SUBMITTED-RESPONSE-TOKEN",
-	secretKey: "YOUR-SECRET-KEY",
-	siteKey: "YOUR-SITE-KEY",
+	token: "USER-SUBMITTED-RESPONSE-TOKEN", // Required
+	secretKey: "YOUR-SECRET-KEY",           // Required
+	siteKey: "YOUR-SITE-KEY",               // Optional
+	remoteIp: "USER-IP-ADDRESS",            // Optional
 });
 
 if (result.success) {
