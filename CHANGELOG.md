@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - None
 
+## [3.0.0] - 2025-08-07
+
+### Added
+
+- Export `ErrorCodes` type
+
+### Changed
+
+- Upgraded zod to `v4` and use zod mini for smaller bundle size
+- Update hCaptcha response schemas
+
 ## [2.1.0] - 2025-02-21
 
 ### Changed
@@ -40,7 +51,8 @@ These are the current package's exports:
 
 Initial version.
 
-[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/velut/verify-hcaptcha/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/velut/verify-hcaptcha/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/velut/verify-hcaptcha/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/velut/verify-hcaptcha/tree/v1.0.0
