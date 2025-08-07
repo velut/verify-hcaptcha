@@ -10,6 +10,7 @@
 		"siteverify",
 		"tsup",
 		"velut",
-		"vitest"
+		"vitest",
+		"zshy"
 	]
 }
