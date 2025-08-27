@@ -22,28 +22,31 @@ A fully typed library to verify hCaptcha.com tokens submitted by users when solv
 
 ## Install
 
+> [!NOTE]
+> Make sure you have Zod v4 installed in your application to use this package.
+
 Using `npm`:
 
 ```
-npm add verify-hcaptcha
+npm add zod verify-hcaptcha
 ```
 
 Using `yarn`:
 
 ```
-yarn add verify-hcaptcha
+yarn add zod verify-hcaptcha
 ```
 
 Using `pnpm`:
 
 ```
-pnpm add verify-hcaptcha
+pnpm add zod verify-hcaptcha
 ```
 
 Using `bun`:
 
 ```
-bun add verify-hcaptcha
+bun add zod verify-hcaptcha
 ```
 
 ## Usage Examples
