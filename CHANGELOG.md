@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - None
 
+## [3.1.0] - 2025-08-27
+
+### Changed
+
+- Moved `zod` from `dependencies` to `peerDependencies` so that dependent applications can bring their own version of Zod.
+
 ## [3.0.0] - 2025-08-07
 
 ### Added
@@ -51,7 +57,8 @@ These are the current package's exports:
 
 Initial version.
 
-[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v3.0.0...HEAD
+[unreleased]: https://github.com/velut/verify-hcaptcha/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/velut/verify-hcaptcha/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/velut/verify-hcaptcha/compare/v2.1.0...v3.0.0
 [2.1.0]: https://github.com/velut/verify-hcaptcha/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/velut/verify-hcaptcha/compare/v1.0.0...v2.0.0
