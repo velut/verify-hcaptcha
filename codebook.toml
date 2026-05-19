@@ -3,6 +3,8 @@ words = [
     "hcaptcha",
     "remoteip",
     "sitekey",
+    "transpiling",
+    "vitest",
     "zod",
     "zshy",
 ]
