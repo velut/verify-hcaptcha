@@ -13,8 +13,8 @@ const enterpriseBotSecretKey = "0x0000000000000000000000000000000000000000";
 const enterpriseBotResponse = "30000000-aaaa-bbbb-cccc-000000000003";
 
 test("no data", async () => {
-	const res = await verifyHcaptchaToken({} as any);
-	expect(res).toMatchInlineSnapshot(`
+  const res = await verifyHcaptchaToken({} as any);
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "challengeTimestamp": undefined,
 		  "credit": undefined,
@@ -30,10 +30,10 @@ test("no data", async () => {
 });
 
 test("no token", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: publisherSecretKey,
-	} as any);
-	expect(res).toMatchInlineSnapshot(`
+  const res = await verifyHcaptchaToken({
+    secretKey: publisherSecretKey,
+  } as any);
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "challengeTimestamp": undefined,
 		  "credit": undefined,
@@ -49,11 +49,11 @@ test("no token", async () => {
 });
 
 test("invalid token and secret key", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: "invalid",
-		token: "invalid",
-	} as any);
-	expect(res).toMatchInlineSnapshot(`
+  const res = await verifyHcaptchaToken({
+    secretKey: "invalid",
+    token: "invalid",
+  } as any);
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "challengeTimestamp": undefined,
 		  "credit": undefined,
@@ -69,15 +69,15 @@ test("invalid token and secret key", async () => {
 });
 
 test("invalid secret key", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: "not-the-dummy-secret",
-		token: publisherResponse,
-	});
-	expect(res).toMatchInlineSnapshot(
-		{
-			challengeTimestamp: expect.any(String),
-		},
-		`
+  const res = await verifyHcaptchaToken({
+    secretKey: "not-the-dummy-secret",
+    token: publisherResponse,
+  });
+  expect(res).toMatchInlineSnapshot(
+    {
+      challengeTimestamp: expect.any(String),
+    },
+    `
 		{
 		  "challengeTimestamp": Any<String>,
 		  "credit": false,
@@ -90,16 +90,16 @@ test("invalid secret key", async () => {
 		  "success": false,
 		}
 	`,
-	);
+  );
 });
 
 test("invalid site key", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: publisherSecretKey,
-		token: publisherResponse,
-		siteKey: "invalid",
-	});
-	expect(res).toMatchInlineSnapshot(`
+  const res = await verifyHcaptchaToken({
+    secretKey: publisherSecretKey,
+    token: publisherResponse,
+    siteKey: "invalid",
+  });
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "challengeTimestamp": undefined,
 		  "credit": undefined,
@@ -115,13 +115,13 @@ test("invalid site key", async () => {
 });
 
 test("invalid remote IP", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: publisherSecretKey,
-		token: publisherResponse,
-		siteKey: publisherSiteKey,
-		remoteIp: "invalid",
-	});
-	expect(res).toMatchInlineSnapshot(`
+  const res = await verifyHcaptchaToken({
+    secretKey: publisherSecretKey,
+    token: publisherResponse,
+    siteKey: publisherSiteKey,
+    remoteIp: "invalid",
+  });
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "challengeTimestamp": undefined,
 		  "credit": undefined,
@@ -137,17 +137,17 @@ test("invalid remote IP", async () => {
 });
 
 test("successful validation", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: publisherSecretKey,
-		token: publisherResponse,
-		siteKey: publisherSiteKey,
-		remoteIp: "0.0.0.0",
-	});
-	expect(res).toMatchInlineSnapshot(
-		{
-			challengeTimestamp: expect.any(String),
-		},
-		`
+  const res = await verifyHcaptchaToken({
+    secretKey: publisherSecretKey,
+    token: publisherResponse,
+    siteKey: publisherSiteKey,
+    remoteIp: "0.0.0.0",
+  });
+  expect(res).toMatchInlineSnapshot(
+    {
+      challengeTimestamp: expect.any(String),
+    },
+    `
 		{
 		  "challengeTimestamp": Any<String>,
 		  "credit": false,
@@ -158,21 +158,21 @@ test("successful validation", async () => {
 		  "success": true,
 		}
 	`,
-	);
+  );
 });
 
 test("successful enterprise safe validation", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: enterpriseSafeSecretKey,
-		token: enterpriseSafeResponse,
-		siteKey: enterpriseSafeSiteKey,
-		remoteIp: "0.0.0.0",
-	});
-	expect(res).toMatchInlineSnapshot(
-		{
-			challengeTimestamp: expect.any(String),
-		},
-		`
+  const res = await verifyHcaptchaToken({
+    secretKey: enterpriseSafeSecretKey,
+    token: enterpriseSafeResponse,
+    siteKey: enterpriseSafeSiteKey,
+    remoteIp: "0.0.0.0",
+  });
+  expect(res).toMatchInlineSnapshot(
+    {
+      challengeTimestamp: expect.any(String),
+    },
+    `
 		{
 		  "challengeTimestamp": Any<String>,
 		  "credit": undefined,
@@ -183,21 +183,21 @@ test("successful enterprise safe validation", async () => {
 		  "success": true,
 		}
 	`,
-	);
+  );
 });
 
 test("successful enterprise bot validation", async () => {
-	const res = await verifyHcaptchaToken({
-		secretKey: enterpriseBotSecretKey,
-		token: enterpriseBotResponse,
-		siteKey: enterpriseBotSiteKey,
-		remoteIp: "0.0.0.0",
-	});
-	expect(res).toMatchInlineSnapshot(
-		{
-			challengeTimestamp: expect.any(String),
-		},
-		`
+  const res = await verifyHcaptchaToken({
+    secretKey: enterpriseBotSecretKey,
+    token: enterpriseBotResponse,
+    siteKey: enterpriseBotSiteKey,
+    remoteIp: "0.0.0.0",
+  });
+  expect(res).toMatchInlineSnapshot(
+    {
+      challengeTimestamp: expect.any(String),
+    },
+    `
 		{
 		  "challengeTimestamp": Any<String>,
 		  "credit": undefined,
@@ -208,5 +208,5 @@ test("successful enterprise bot validation", async () => {
 		  "success": true,
 		}
 	`,
-	);
+  );
 });

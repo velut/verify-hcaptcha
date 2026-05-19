@@ -57,15 +57,15 @@ Verify a token submitted by a user:
 import { verifyHcaptchaToken } from "verify-hcaptcha";
 
 const result = await verifyHcaptchaToken({
-	token: "USER-SUBMITTED-RESPONSE-TOKEN",
-	secretKey: "YOUR-SECRET-KEY",
-	siteKey: "YOUR-SITE-KEY",
+  token: "USER-SUBMITTED-RESPONSE-TOKEN",
+  secretKey: "YOUR-SECRET-KEY",
+  siteKey: "YOUR-SITE-KEY",
 });
 
 if (result.success) {
-	console.log("User is human");
+  console.log("User is human");
 } else {
-	console.log("User is robot");
+  console.log("User is robot");
 }
 ```
 

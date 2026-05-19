@@ -1,80 +1,82 @@
 {
-	"name": "verify-hcaptcha",
-	"version": "3.1.0",
-	"description": "A fully typed library to verify hCaptcha.com tokens submitted by users when solving captcha challenges",
-	"license": "MIT",
-	"author": {
-		"name": "Edoardo Scibona",
-		"url": "https://github.com/velut"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/velut/verify-hcaptcha.git"
-	},
-	"bugs": {
-		"url": "https://github.com/velut/verify-hcaptcha/issues"
-	},
-	"keywords": [
-		"hcaptcha",
-		"captcha",
-		"verify",
-		"response",
-		"token",
-		"user",
-		"typescript",
-		"types",
-		"typed",
-		"node",
-		"validate",
-		"check",
-		"siteverify"
-	],
-	"sideEffects": false,
-	"type": "module",
-	"zshy": {
-		"exports": {
-			"./package.json": "./package.json",
-			".": "./src/index.ts"
-		},
-		"cjs": false
-	},
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		"./package.json": "./package.json",
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"engines": {
-		"node": ">=20"
-	},
-	"scripts": {
-		"check": "tsc --noEmit",
-		"build": "tsc --noEmit && zshy",
-		"attw": "attw --pack . --profile esm-only",
-		"test": "vitest",
-		"test:ci": "vitest run --coverage --bail 1",
-		"lint": "prettier --check .",
-		"format": "prettier --write .",
-		"pre-push": "bun install && bun run lint && bun run build && bun run test:ci && bun run attw",
-		"release": "np --no-cleanup"
-	},
-	"peerDependencies": {
-		"zod": "^4.0.0"
-	},
-	"devDependencies": {
-		"@arethetypeswrong/cli": "^0.18.2",
-		"@types/bun": "^1.3.14",
-		"@vitest/coverage-v8": "^4.1.6",
-		"np": "^11.2.1",
-		"prettier": "^3.6.2",
-		"typescript": "^6.0.2",
-		"vitest": "^4.1.6",
-		"zshy": "^0.7.0"
-	}
+  "name": "verify-hcaptcha",
+  "version": "3.1.0",
+  "description": "A fully typed library to verify hCaptcha.com tokens submitted by users when solving captcha challenges",
+  "keywords": [
+    "captcha",
+    "check",
+    "hcaptcha",
+    "node",
+    "response",
+    "siteverify",
+    "token",
+    "typed",
+    "types",
+    "typescript",
+    "user",
+    "validate",
+    "verify"
+  ],
+  "bugs": {
+    "url": "https://github.com/velut/verify-hcaptcha/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Edoardo Scibona",
+    "url": "https://github.com/velut"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velut/verify-hcaptcha.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "tsc --noEmit && zshy",
+    "attw": "attw --pack . --profile esm-only",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage --bail 1",
+    "lint": "oxfmt --check",
+    "format": "oxfmt",
+    "pre-push": "bun install && bun run lint && bun run build && bun run test:ci && bun run attw",
+    "release": "np --no-cleanup"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@types/bun": "^1.3.14",
+    "@types/node": "^25.9.0",
+    "@vitest/coverage-v8": "^4.1.6",
+    "np": "^11.2.1",
+    "oxfmt": "^0.51.0",
+    "prettier": "^3.6.2",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.6",
+    "zshy": "^0.7.0"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "zshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    },
+    "cjs": false
+  }
 }
