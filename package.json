@@ -61,7 +61,6 @@
     "@vitest/coverage-v8": "^4.1.6",
     "np": "^11.2.1",
     "oxfmt": "^0.51.0",
-    "prettier": "^3.6.2",
     "typescript": "^6.0.2",
     "vitest": "^4.1.6",
     "zshy": "^0.7.0"
