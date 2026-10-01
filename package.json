@@ -62,7 +62,7 @@
     "np": "^12.0.0",
     "oxfmt": "^0.70.0",
     "typescript": "^6.0.2",
-    "vitest": "^4.1.6",
+    "vitest": "^5.0.2",
     "zshy": "^0.8.0"
   },
   "peerDependencies": {
