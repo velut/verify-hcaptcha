@@ -63,7 +63,7 @@
     "oxfmt": "^0.70.0",
     "typescript": "^6.0.2",
     "vitest": "^4.1.6",
-    "zshy": "^0.7.0"
+    "zshy": "^0.8.0"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
